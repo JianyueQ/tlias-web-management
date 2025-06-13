@@ -2,6 +2,8 @@ package com.itheima.interceptor;
 
 
 import com.itheima.Utils.JwtUtils;
+import com.itheima.constant.EmplConstant;
+import com.itheima.contexts.BaseContext;
 import com.itheima.properties.JwtProperties;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
@@ -37,6 +39,10 @@ public class JwtAdminInterceptor implements HandlerInterceptor {
         try {
             Claims claims = JwtUtils.parseJWT(jwtProperties.getAdminSecretKey(),token);
             //todo 解析出的令牌信息保存到当前线程的变量中
+            Long empId = Long.valueOf(claims.get(EmplConstant.EMP_ID).toString());
+            String username = claims.get(EmplConstant.USERNAME).toString();
+            log.info("{}用户id为：{}",username,empId);
+            BaseContext.setCurrentId(empId);
             return true;
         } catch (Exception e) {
             //返回状态码

@@ -1,5 +1,6 @@
 package com.itheima.controller;
 
+import com.itheima.annotations.OperateLog;
 import com.itheima.annotations.RecordTime;
 import com.itheima.pojo.entity.Dept;
 import com.itheima.pojo.vo.DeptVo;
@@ -20,31 +21,32 @@ public class DeptController {
     @Autowired
     private DeptService deptService;
 
-    @RecordTime
+//    @RecordTime
+    @OperateLog
     @GetMapping
     public Result list(){
         List<DeptVo> deptVoList = deptService.list();
         return Result.success(deptVoList);
     }
-
+    @OperateLog
     @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id){
         deptService.delete(id);
         return Result.success();
     }
-
+    @OperateLog
     @PostMapping()
     public Result add(@RequestBody Dept dept){
         deptService.add(dept);
         return Result.success();
     }
-
+    @OperateLog
     @GetMapping("/{id}")
     public Result findById(@PathVariable Integer id){
         DeptVo deptVo = deptService.findById(id);
         return Result.success(deptVo);
     }
-
+    @OperateLog
     @PutMapping
     public Result update(@RequestBody Dept dept){
         deptService.update(dept);

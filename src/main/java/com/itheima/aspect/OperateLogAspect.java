@@ -35,7 +35,7 @@ public class OperateLogAspect {
         //获取操作时间
         LocalDateTime now = LocalDateTime.now();
         //获取操作的类名
-        String className = joinPoint.getSignature().getClass().getName();
+        String className = joinPoint.getTarget().getClass().getName();
         //获取操作的方法名
         String methodName = joinPoint.getSignature().getName();
         //获取方法的参数
