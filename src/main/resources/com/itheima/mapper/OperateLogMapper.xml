@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itheima.mapper.OperateLogMapper">
+    <insert id="insert">
+        INSERT INTO operate_log (operate_time, class_name, method_name, method_params, return_value, cost_time,  operate_user)
+        VALUES (#{operateTime}, #{className}, #{methodName}, #{methodParams}, #{returnValue}, #{costTime},  #{operateUser})
+    </insert>
+
+    <!-- 查询所有日志 -->
+    <select id="selectAll" resultType="com.itheima.pojo.entity.OperateLog">
+        SELECT * FROM operate_log ORDER BY operate_time DESC
+    </select>
+</mapper>

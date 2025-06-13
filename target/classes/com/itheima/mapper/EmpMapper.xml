@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itheima.mapper.EmpMapper">
+    <insert id="add">
+        insert into emp
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username != null">username,</if>
+            <if test="name != null">name,</if>
+            <if test="gender != null">gender,</if>
+            <if test="image != null">image,</if>
+            <if test="job != null">job,</if>
+            <if test="entrydate != null">entrydate,</if>
+            <if test="deptId != null">dept_id,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="username != null">#{username},</if>
+            <if test="name != null">#{name},</if>
+            <if test="gender != null">#{gender},</if>
+            <if test="image != null">#{image},</if>
+            <if test="job != null">#{job},</if>
+            <if test="entrydate != null">#{entrydate},</if>
+            <if test="deptId != null">#{deptId},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+        </trim>
+    </insert>
+    <update id="update">
+        update emp
+        <set>
+            <if test="name != null">name=#{name},</if>
+            <if test="gender != null">gender=#{gender},</if>
+            <if test="image != null">image=#{image},</if>
+            <if test="job != null">job=#{job},</if>
+            <if test="entrydate != null">entrydate=#{entrydate},</if>
+            <if test="deptId != null">dept_id= #{deptId},</if>
+        </set>
+        where id=#{id}
+    </update>
+    <delete id="delete">
+        delete from emp where id in
+        <foreach item="id" collection="ids" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <delete id="deleteByDeptId">
+        delete from emp where dept_id=#{deptId}
+    </delete>
+    <select id="list" resultType="com.itheima.pojo.entity.Emp">
+        select id,username,password,name,gender,image,job,entrydate,dept_id,create_time,update_time from emp
+        <where>
+            <if test="name != null">and name like concat('%',#{name},'%')</if>
+            <if test="gender != null">and gender=#{gender}</if>
+            <if test="begin != null">and entrydate &gt;= #{begin}</if>
+            <if test="end != null">and entrydate &lt;= #{end}</if>
+        </where>
+    </select>
+    <select id="findById" resultType="com.itheima.pojo.vo.EmpVo">
+        select id,username,name,gender,image,job,entrydate,dept_id,create_time,update_time from emp where id=#{id}
+    </select>
+</mapper>

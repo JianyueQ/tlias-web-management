@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tlias
+    username: root
+    password: 123456
+server:
+  port: 9042
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+file:
+  uploadPath: C:\Users\31373\Downloads\uploads\
+  accessUrl: /files/
+jwt:
+  admin-secret-key: abcdefghijklmnopqrstuvwxyz11223344556677889900
+  admin-ttl: 1800000
+  admin-token-name: token
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
