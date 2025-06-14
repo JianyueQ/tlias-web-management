@@ -7,10 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="tlias-web-management" />
         <module name="aliyun-oss-spring-boot-starter" />
+        <module name="tlias-web-management" />
         <module name="aliyun-oss-spring-boot-autoconfigure" />
         <module name="itheima-utils" />
+        <module name="tlias-pojo" />
       </profile>
     </annotationProcessing>
   </component>
@@ -18,6 +19,8 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="aliyun-oss-spring-boot-autoconfigure" options="-parameters" />
       <module name="aliyun-oss-spring-boot-starter" options="-parameters" />
+      <module name="tlias-parent" options="" />
+      <module name="tlias-pojo" options="-parameters" />
       <module name="tlias-web-management" options="-parameters" />
     </option>
   </component>

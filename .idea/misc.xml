@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/../aliyun-oss-spring-boot-starter/pom.xml" />
         <option value="$PROJECT_DIR$/../aliyun-oss-spring-boot-autoconfigure/pom.xml" />
         <option value="$PROJECT_DIR$/../tlias-pojo/pom.xml" />
+        <option value="$PROJECT_DIR$/../tlias-parent/pom.xml" />
       </list>
     </option>
   </component>
