@@ -8,12 +8,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="tlias-web-management" />
+        <module name="aliyun-oss-spring-boot-starter" />
+        <module name="aliyun-oss-spring-boot-autoconfigure" />
         <module name="itheima-utils" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="aliyun-oss-spring-boot-autoconfigure" options="-parameters" />
+      <module name="aliyun-oss-spring-boot-starter" options="-parameters" />
       <module name="tlias-web-management" options="-parameters" />
     </option>
   </component>
