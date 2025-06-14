@@ -5,6 +5,7 @@ import com.itheima.Utils.JwtUtils;
 import com.itheima.constant.EmplConstant;
 import com.itheima.contexts.BaseContext;
 import com.itheima.properties.JwtProperties;
+import com.itheima.result.Result;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,7 @@ public class JwtAdminInterceptor implements HandlerInterceptor {
         } catch (Exception e) {
             //返回状态码
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            Result.error("NOT_LOGIN");
             return false;
         }
     }

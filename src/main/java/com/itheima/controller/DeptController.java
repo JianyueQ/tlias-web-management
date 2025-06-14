@@ -7,6 +7,8 @@ import com.itheima.pojo.vo.DeptVo;
 import com.itheima.result.Result;
 import com.itheima.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,12 +16,18 @@ import java.util.List;
 /**
  * 部门管理Controller
  */
+//@Lazy  // 懒加载 单例
+@Scope("prototype") // 多例
 @RestController()
 @RequestMapping("/depts")
 public class DeptController {
 
     @Autowired
     private DeptService deptService;
+
+    public DeptController() {
+        System.out.println("deptController创建了...");
+    }
 
 //    @RecordTime
     @OperateLog
