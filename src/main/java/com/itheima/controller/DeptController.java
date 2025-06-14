@@ -1,13 +1,11 @@
 package com.itheima.controller;
 
 import com.itheima.annotations.OperateLog;
-import com.itheima.annotations.RecordTime;
 import com.itheima.pojo.entity.Dept;
 import com.itheima.pojo.vo.DeptVo;
 import com.itheima.result.Result;
 import com.itheima.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.*;
 

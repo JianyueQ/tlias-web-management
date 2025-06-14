@@ -1,6 +1,5 @@
 package com.itheima.service.impl;
 
-import com.itheima.Exception.AccountNotFoundException;
 import com.itheima.mapper.DeptMapper;
 import com.itheima.mapper.EmpMapper;
 import com.itheima.pojo.entity.Dept;
